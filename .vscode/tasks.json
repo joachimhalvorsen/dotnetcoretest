@@ -41,6 +41,16 @@
                 "cwd": "${workspaceRoot}/TestApiUnitTest"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build Solution",
+            "dependsOn": [
+                "build TestApi",
+                "build OtherApi",
+                "build Tests"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "build"
         }
     ]
 }
