@@ -1,0 +1,48 @@
+{
+   // Use IntelliSense to find out which attributes exist for C# debugging
+   // Use hover for the description of the existing attributes
+   // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+   "version": "0.2.0",
+   "configurations": [
+        {
+            "name": "Launch TestApi",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build TestApi",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/TestApi/bin/Debug/netcoreapp2.2/TestApi.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/TestApi",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Launch OtherApi",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build OtherApi",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/OtherApi/bin/Debug/netcoreapp2.2/OtherApi.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/OtherApi",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ,],
+    "compounds": [
+        {
+            "name": "All APIs",
+            "configurations": ["Launch TestApi", "Launch OtherApi"]
+        }
+    ]
+}
